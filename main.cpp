@@ -28,18 +28,20 @@ public:
 
     }
 
-    void Add_head(class Node<Type> *node){
-        Head = node;
-        Last_node = node;
-        Length += 1;
-        Is_head = true;
-    }
+    void Append(Type data){
+        auto *ptr = new Node<Type>(data);
+        if(!Is_head){
+            Head = ptr;
+            Last_node = ptr;
+            Length += 1;
+            Is_head = true;
+        }
+        else{
+            Last_node -> Next = ptr;
+            Last_node = ptr;
+            Length += 1;
+        }
 
-
-    void Add_node(class Node<Type> *node){
-        Last_node -> Next = node;
-        Last_node = node;
-        Length += 1;
     }
 
     void Print() const{
@@ -103,9 +105,8 @@ public:
 
 int main(){
     Linked_list<int> list = Linked_list<int>();
-    list.Add_head(new Node<int>(7));
     for(int i = 0; i < 4; i++){
-        list.Add_node(new Node<int>(i));
+        list.Append(i);
     }
     cout << "List data \n\n";
     list.Print();
