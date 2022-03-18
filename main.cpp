@@ -2,46 +2,48 @@
 
 using std::cout;
 
+template <class Type>
 class Node{
 public:
     Node *Next;
-    int Data;
-    explicit Node(int data, Node *next_item = nullptr){
+    Type Data;
+    explicit Node(Type data, Node *next_item = nullptr){
         Data = data;
         Next = next_item;
     }
 };
 
+template <class Type>
 class Linked_list{
 public:
-    Node *Head;
-    Node *Last_node;
-    int Lenght;
+    Node<Type> *Head;
+    Node<Type> *Last_node;
+    int Length;
     bool Is_head = false;
 
     Linked_list(){
         Head = nullptr;
         Last_node = nullptr;
-        Lenght = 0;
+        Length = 0;
 
     }
 
-    void Add_head(class Node *node){
+    void Add_head(class Node<Type> *node){
         Head = node;
         Last_node = node;
-        Lenght += 1;
+        Length += 1;
         Is_head = true;
     }
 
 
-    void Add_node(class Node *node){
+    void Add_node(class Node<Type> *node){
         Last_node -> Next = node;
         Last_node = node;
-        Lenght += 1;
+        Length += 1;
     }
 
     void Print() const{
-        Node *ptr = Head;
+        Node<Type> *ptr = Head;
         bool start = true;
         int count = 0;
         while(start){
@@ -57,12 +59,12 @@ public:
         }
     }
 
-    void Print_node(Node *ptr){
+    void Print_node(Node<Type> *ptr){
         cout << ptr -> Data << "\n";
     }
 
-    Node* Node_address(int node_number){
-        Node *ptr = Head;
+    Node<Type>* Node_address(int node_number){
+        Node<Type> *ptr = Head;
         for(int i = 1; i < node_number; i++){
             if(ptr->Next == nullptr){
                 return nullptr;
@@ -75,24 +77,24 @@ public:
     }
 
 
-    Node* Modify_node(int node_number, int data){
-        Node *ptr = Node_address(node_number);
+    Node<Type>* Modify_node(int node_number, Type data){
+        Node<Type> *ptr = Node_address(node_number);
         ptr -> Data = data;
         return ptr;
     }
 
     void Remove_node(int node_number){
-        Node *ptr = Head;
+        Node<Type> *ptr = Head;
         if(node_number == 1){
             Head = Head->Next;
         }
-        else if(node_number == Lenght){
-            Node *last_node = Node_address(Lenght - 1);
+        else if(node_number == Length){
+            Node<Type> *last_node = Node_address(Length - 1);
             last_node -> Next = nullptr;
         }
         else{
-            Node *previous_node = Node_address(node_number - 1);
-            Node *after_node = Node_address(node_number + 1);
+            Node<Type> *previous_node = Node_address(node_number - 1);
+            Node<Type> *after_node = Node_address(node_number + 1);
             previous_node->Next = after_node;
         }
     }
@@ -100,10 +102,10 @@ public:
 
 
 int main(){
-    Linked_list list = Linked_list();
-    list.Add_head(new Node(7));
+    Linked_list<int> list = Linked_list<int>();
+    list.Add_head(new Node<int>(7));
     for(int i = 0; i < 4; i++){
-        list.Add_node(new Node(i));
+        list.Add_node(new Node<int>(i));
     }
     cout << "List data \n\n";
     list.Print();
