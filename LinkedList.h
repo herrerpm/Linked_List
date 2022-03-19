@@ -1,9 +1,18 @@
 //
-// Created by mherr on 18/03/2022.
+// Created by herrerpm on 18/03/2022.
 //
 
 #ifndef LINKED_LIST_LINKEDLIST_H
 #define LINKED_LIST_LINKEDLIST_H
+
+/*
+ * This header file adds imports two clases, the Node class and the Linked List class
+ * the linked list allows for the creation of a resizible array that is based of on
+ * the Node class, that counts with a Data and Next atributes for connecting the
+ * list together.
+ */
+
+//Creates a node class that contains data and a pointer to another node
 template <class Type>
 class Node{
 public:
@@ -13,12 +22,13 @@ public:
         Data = data;
         Next = next_item;
     }
-
+    // The print method prints the data in a node
     void Print(){
         std::cout << Data << "\n";
     }
 };
 
+//Creates a Linked list class, that allows for content to be dynamically added
 template <class Type>
 class Linked_list{
 public:
@@ -34,6 +44,7 @@ public:
 
     }
 
+    //The append function adds a node to the list, and takes the data as parameter
     void Append(Type data){
         auto *ptr = new Node<Type>(data);
         if(!Is_head){
@@ -50,6 +61,7 @@ public:
 
     }
 
+    //The PrintAll method iterates all over the list and prints each node's data
     void PrintAll() const{
         Node<Type> *ptr = Head;
         bool start = true;
@@ -67,11 +79,8 @@ public:
         }
     }
 
-    void Print_node(Node<Type> *ptr){
-        std::cout << ptr -> Data << "\n";
-    }
-
-    Node<Type>* Node_address(int node_number){
+    //The Node_Address method returns the pointer to a node based on it's position
+    Node<Type>* Node_Address(int node_number){
         Node<Type> *ptr = Head;
         for(int i = 1; i < node_number; i++){
             if(ptr->Next == nullptr){
@@ -84,13 +93,13 @@ public:
         return ptr;
     }
 
-
-    Node<Type>* Modify(int node_number, Type data){
+    //The Node_Address modifies the pointer of a node's data
+    void Modify(int node_number, Type data){
         Node<Type> *ptr = Node_address(node_number);
         ptr -> Data = data;
-        return ptr;
     }
 
+    //The Remove method removes a node from the list based on it's position
     void Remove(int node_number){
         if(node_number == 1){
             Head = Head->Next;
