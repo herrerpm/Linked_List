@@ -8,19 +8,19 @@ The following header is a model of a Linked List that I developed, it works by h
 
   `list.Append(data: 7);`
 
-- **PrintAll** The print all method iterates all over the list with a while loop. It follows the connections from the head's pointer until it arrives to the sentinel node that is pointing to a nullpointer, and it takes no argument.
+- **PrintAll:** The print all method iterates all over the list with a while loop. It follows the connections from the head's pointer until it arrives to the sentinel node that is pointing to a nullpointer, and it takes no argument.
 
   `list.Append(data: 6);`
 
-- **Node_Address** The Node_Address method iterates over the list until it finds the desired node, it is important to note that the nodes are labeled as if they ranged from 1 to the list size, meaning that the Head node will always be one. The method returns a pointer to the node, and not the actual data.
+- **Node_Address:** The Node_Address method iterates over the list until it finds the desired node, it is important to note that the nodes are labeled as if they ranged from 1 to the list size, meaning that the Head node will always be one. The method returns a pointer to the node, and not the actual data.
 
   `list.Node_addres(node_number: 7);`
 
-- **Modify** The modify method takes in data by the user and changes a desired node's data using the enumeration described above. 
+- **Modify:** The modify method takes in data by the user and changes a desired node's data using the enumeration described above. 
 
   `list.Modify(node_number: 3);`
 
-- **Remove** The remove method uses the number of a node to unlink it from the list. At the time the memory is not deleted, but it is a feature I will implement. The remove method has 3 cases, if the head node is removed it converts the second node into the head. If the last node is removed, it takes the node's prior next attribute and points it to a null pointer. The last case is if the node is in between, which will lead to the prior node changing it's connection towards the node after.
+- **Remove:** The remove method uses the number of a node to unlink it from the list. At the time the memory is not deleted, but it is a feature I will implement. The remove method has 3 cases, if the head node is removed it converts the second node into the head. If the last node is removed, it takes the node's prior next attribute and points it to a null pointer. The last case is if the node is in between, which will lead to the prior node changing it's connection towards the node after.
 
   `list.Remove(node_number: 5);`
   
