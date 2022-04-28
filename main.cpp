@@ -18,6 +18,6 @@ int main(){
     list.Modify(2, "dfd4");
     list.PrintAll();
     cout << "\nPrint single node value \n\n";
-    list.Print_node(list.Node_address(3));
+//    list.Print_node(list.Node_address(3));
 
 }
