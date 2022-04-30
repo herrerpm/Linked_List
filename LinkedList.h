@@ -40,7 +40,7 @@ public:
     void Append(Type data);
 
     //The PrintAll method iterates all over the list and prints each node's data
-    void PrintAll() const;
+    void PrintAll();
 
     //The Node_Address method returns the pointer to a node based on it's position
     Node<Type>* Node_address(int node_number);
@@ -51,5 +51,7 @@ public:
     //The Remove method removes a node from the list based on it's position
     void Remove(int node_number);
 };
+
+#include "LinkedList.tpp"
 
 #endif //LINKED_LIST_LINKEDLIST_H

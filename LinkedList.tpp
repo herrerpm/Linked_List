@@ -1,5 +1,3 @@
-#include "LinkedList.h"
-
 template <class Type>
 Node<Type>::Node(Type data, Node<Type> *next_item){
     Data = data;
@@ -35,7 +33,7 @@ void Linked_list<Type>::Append(Type data){
 }
 
 template <class Type>
-void Linked_list<Type>::PrintAll() const{
+void Linked_list<Type>::PrintAll(){
     Node<Type> *ptr = Head;
     bool start = true;
     int count = 0;
@@ -64,6 +62,12 @@ Node<Type>* Linked_list<Type>::Node_address(int node_number){
         }
     }
     return ptr;
+}
+
+template <class Type>
+void Linked_list<Type>::Modify(int node_number, Type data){
+    Node<Type> *ptr = Node_address(node_number);
+    ptr -> Data = data;
 }
 
 template <class Type>
