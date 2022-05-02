@@ -4,6 +4,9 @@ The following header is a model of a Linked List that I developed, it works by h
 
 ## Usage
 ---
+
+# Linked_List methods
+
 - **Append:** The append function has only one parameter, which is the data type you want to store. The method then creates a node and creates a connection pointer between the last node and the new node, and then updates the last node to be the new node. The method also defines the first node appended as the head, after that the Is_head atribute is set to true, and all other nodes are treated normally.
 
   `list.Append(data: 7);`
@@ -23,6 +26,11 @@ The following header is a model of a Linked List that I developed, it works by h
 - **Remove:** The remove method uses the number of a node to unlink it from the list. At the time the memory is not deleted, but it is a feature I will implement. The remove method has 3 cases, if the head node is removed it converts the second node into the head. If the last node is removed, it takes the node's prior next attribute and points it to a null pointer. The last case is if the node is in between, which will lead to the prior node changing it's connection towards the node after.
 
   `list.Remove(node_number: 5);`
+  
+ # Node methods
+ 
+ - **Print:** The print method, as it's name suggests, prints the data a node contains.
+  `node.Print();`
   
 ## Updates
   ---
