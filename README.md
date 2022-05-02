@@ -30,7 +30,7 @@ The following header is a model of a Linked List that I developed, it works by h
  # Node methods
  
  - **Print:** The print method, as it's name suggests, prints the data a node contains.
-  `node.Print();`
+   `node.Print();`
   
 ## Updates
   ---
